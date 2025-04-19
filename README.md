@@ -52,9 +52,9 @@ Por motivos externos se desarrolló un prototipo en dos ambientes similares, con
 **Frontend**
 - HTML / CSS / JavaScript
 
-## Vista del prototipo
+## Video de presentación del prototipo
 
-(foto aquí)
+Puedes ver el funcionamiento del prototipo en este video: [(video aquí)](https://youtu.be/tCjK5EAwtyI)
 
 ## Licencia
 
