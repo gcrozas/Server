@@ -1,0 +1,50 @@
+#center, #mov-log, #lum-log-1,#lum-log-2,#floor-log,#door-log, #lvl_temp-log, #lvl_hum-log{
+    text-align: center;
+}
+
+h1 {
+    width: 650px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.box {
+    align-items: center;
+    width: 290px;
+    height: auto;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 25px;
+    border: 3px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+img.box-icon{
+    vertical-align: middle;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.content {
+    /*max-width: 600px;
+    margin: auto;*/
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 20px;
+}
+
+.lab-map {
+    position: fixed;
+    right: 0;
+}
