@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+	<link rel="stylesheet" type="text/css" href='{% static "css/tables.css" %}'>
+	<link rel="stylesheet" type="text/css" href='{% static "css/historical.css" %}'>
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="{% static 'js/historical.js' %}"></script>
+	<h1>Registro del historico</h1>
+	<div>
+		<p style="font-size:2vw">Seleccione el historial que desea ver.</p>
+		<form>
+			<select id="historical">
+				<option>Temperatura</option>
+				<option>Humedad</option>
+				<option>Luminosidad/Horas de encendido</option>
+				<option>Horas de presencia</option>
+			</select>
+			<br><br>
+			<button type="button" onClick="showInfo()">Mostrar datos registrados</button>
+			<br><br>
+		</form>
+	</div>
+	<!--Contenido del historico-->
+	<div id="results_content">
+		<p id="week" style="font-size:2vw"></p>
+		<!--Graficas-->
+		<div id="result_graph" class="historical_graph"></div>
+		<div id="result_graph_2" class="historical_graph"></div>	
+		<!--Tablas-->
+		<p id="subs-1" style="font-size:3vw;text-align:center;display:none">Sección 1</p>
+		<p id="subs-3" style="font-size:3vw;text-align:center;display:none">Nivel de iluminación</p>
+		<div id="historical_results" class="historical_table">
+		</div>
+		<p id="subs-4" style="font-size:3vw;text-align:center;display:none">Horas de encendido</p>
+		<div id="historical_results_2" class="historical_table">
+		</div>
+		<p id="subs-2" style="font-size:3vw;text-align:center;display:none">Sección 2</p>
+		<p id="subs-5" style="font-size:3vw;text-align:center;display:none">Nivel de iluminación</p>
+		<div id="historical_results_3" class="historical_table">
+		</div>
+		<p id="subs-6" style="font-size:3vw;text-align:center;display:none">Horas de encendido</p>
+		<div id="historical_results_4" class="historical_table">
+		</div>
+	</div>
+{% endblock content %}

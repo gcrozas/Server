@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href='{% static "css/dashboard.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/switch.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/gauge.css" %}'>
+<script type="text/javascript" src="{% static 'js/realtime.js' %}"></script>
+<div class="content">
+    <div class="dashboard">
+        <div class="row"> <!--Linea-->
+            <h1 id="center">Temperatura y Humedad relativa</h1>
+        </div>
+        <div class="row"> <!--Linea-->
+            <div class="box">
+                <h2 id="center">Interior</h2>
+                <div>
+                    <img class="box-icon" src="{% static 'images/temp.png' %}" width="50" height="50">
+                    <h3 id="temp-log" style="display: inline-block"></h3>
+                </div>
+                <div>
+                    <img class="box-icon" src="{% static 'images/hum.png' %}" width="50" height="50">
+                    <h3 id="hum-log" style="display: inline-block"></h3>
+                </div>
+                <h6 id="datetime-log" style="margin:0 auto; margin-top: 10px;"></h6>
+            </div>
+            <div class="box">
+                <h2 id="center">Exterior</h2>
+                <div>
+                    <img class="box-icon" src="{% static 'images/temp.png' %}" width="50" height="50">
+                    <h3 id="ext_temp-log" style="display: inline-block"></h3>
+                </div>
+                <div>
+                    <img class="box-icon" src="{% static 'images/hum.png' %}" width="50" height="50">
+                    <h3 id="ext_hum-log" style="display: inline-block"></h3>
+                </div>
+                <h6 id="ext_datetime-log" style="margin:0 auto; margin-top: 10px;"></h6>
+            </div>
+        </div>
+        <div class="row"> <!--Linea-->
+            <div class="box">
+                <h2 id="center">Nivel de temperatura (Interior)</h2>
+                <div class="gauge3">
+                    <div class="gauge__body">
+                        <div class="gauge__fill"></div>
+                        <div class="gauge__cover">
+                        </div>
+                    </div>
+                </div>
+                <h4 id="lvl_temp-log"></h4>        
+            </div>
+            <div class="box">
+                <h2 id="center">Nivel de humedad (Interior)</h2>
+                <div class="gauge4">
+                    <div class="gauge__body">
+                        <div class="gauge__fill"></div>
+                        <div class="gauge__cover">
+                        </div>
+                    </div>
+                </div>
+                <h4 id="lvl_hum-log"></h4>
+            </div>
+        </div>
+        <div class="row"> <!--Linea-->
+            <h1 id="center">Luces</h1>
+        </div>
+        <div class="row"> <!--Linea-->
+            <div class="box">
+                <h2 id="center">Sección 1</h2>
+                <h4 id="lum_seccion1-log"></h4>
+                <label class="switch">
+                    <input type="checkbox" id="desk-switch" class="checkbox" onchange="desk_event(this)">
+                    <span class="slider round"></span>
+                </label>            
+            </div>
+            <div class="box">
+                <h2 id="center">Sección 2</h2>
+                <h4 id="lum_seccion2-log"></h4>
+                <label class="switch">
+                    <input type="checkbox" id="ceiling-switch" class="checkbox" onchange="ceiling_event(this)">
+                    <span class="slider round"></span>
+                </label> 
+            </div>
+        </div>
+        <!--Nivel de iluminacion -->
+        <div class="row"> <!--Linea-->
+            <div class="box" id="lumiDiv-1"> <!--Caja-->
+                <h2 id="center">Iluminacion (Seccion 1)</h2>
+                <div class="gauge1">
+                    <div class="gauge__body">
+                        <div class="gauge__fill"></div>
+                        <div class="gauge__cover">
+                        </div>
+                    </div>
+                </div>
+                <!--<canvas id="desk-light-canvas" width="300" height="300"></canvas>-->
+            </div>
+            <div class="box" id="lumiDiv-2">
+                <h2 id="center">Iluminacion (Sección 2)</h2>
+                <div class="gauge2">
+                    <div class="gauge__body">
+                        <div class="gauge__fill"></div>
+                        <div class="gauge__cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"> <!--Linea-->
+            <h1>Aire acondicionado</h1>
+        </div>
+        <div class="row"> <!--Linea-->
+            <div class="box" id="ac1Div">
+                <h2 id="center">A/A 1</h2>
+                <h4 id="ac1-log"></h4>
+                <label class="switch">
+                    <input type="checkbox" id="ac1-switch" class="checkbox" onchange="ac1_event(this)">
+                    <span class="slider round"></span>
+                </label> 
+            </div>
+            <div class="box" id="ac2Div">
+                <h2 id="center">A/A 2</h2>
+                <h4 id="ac2-log"></h4>
+                <label class="switch">
+                    <input type="checkbox" id="ac2-switch" class="checkbox" onchange="ac2_event(this)">
+                    <span class="slider round"></span>
+                </label> 
+            </div>
+        </div>
+        <div class="row"> <!--Linea-->
+            <h1>Seguridad</h1>
+        </div>
+        <div class="row"> <!--Linea-->
+            <div class="box" id="movDiv">
+                <h2 id="center">Presencia</h2>
+                <h4 id="mov-log"></h4>
+            </div>
+            <div class="box" id="doorDiv">
+                <h2 id="center">Seguro de la puerta</h2>
+                <h4 id="door-log"></h4>
+            </div>
+        </div>
+        <div class="row" style="display: flex;"> <!--Linea-->
+            <div class="box" id="floorDiv" style="margin:0 auto; margin-top: 10px;">
+                <h2 id="center">Humedad del piso</h2>
+                <h4 id="floor-log"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="lab-map">
+        <img src="{% static 'images/lab_map.png' %}" width="550" height="550">
+    </div>
+</div>
+{% endblock content %}
