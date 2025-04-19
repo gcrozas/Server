@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href='{% static "css/list.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/backup.css" %}'>
+	<row>
+		<h1>Acerca de</h1>
+	</row>
+	<row>
+		<h4>Servidor IOT es una aplicación web desarrollada para la interconexión de dispositivos IoT de los laboratorios.</h4>
+	</row>
+	{% if user.is_authenticated %}
+	<div class="row">
+		<h1>Manual de usuario</h1>
+	</div>
+	<div class="row">
+		<embed src="{% static 'pdf/ServidorIOT_ManualDeUsuario.pdf' %}" type="application/pdf" width="100%" height="600px" style="margin-left: auto; margin-right: auto; display: block;">
+	</div>
+	{% endif %}
+	{% if user.is_superuser %}
+	<div class="row">
+		<h1>Manual de administracion</h1>
+	</div>
+	<div class="row">
+		<embed src="{% static 'pdf/ServidorIOT_ManualTecnico.pdf' %}" type="application/pdf" width="100%" height="600px" style="margin-left: auto; margin-right: auto; display: block;">
+	</div>
+	{% endif %}
+{% endblock content %}

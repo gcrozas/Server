@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href='{% static "css/list.css" %}'>
+<link rel="stylesheet" type="text/css" href='{% static "css/backup.css" %}'>
+<div class="row">
+	<h1>Te damos la bienvenida a este servidor.</h1>
+</div>
+<div class="row">
+	<h3>De el siguiente paso, para tener acceso a los siguientes servicios IoT del servidor:</h3>
+</div>
+<div class="row">
+	<list class="home-list">
+		<li>Ofrecemos visibilidad a nuestros usuarios registrados sobre los sensores y actuadores conectados al servidor.</li>
+		<li>Permitimos a nuestros usuarios registrados el control sobre los actuadores conectados al servidor.</li>
+	</list>
+</div>
+{% endblock content %}

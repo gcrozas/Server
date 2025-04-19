@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href='{% static "css/backup.css" %}'>
+<div class="row">
+    <h1>Area Administrativa</h1>
+</div>
+<div class="row">
+    <h4>Pagina donde puede acceder al Area administrativa del servidor,
+        donde podra gestionar los usuarios registrados, y la informacion registrada en la base de datos.
+    </h4>
+</div>
+<div class="row">
+    <a class="admin-btn" href="{% url 'admin:index' %}" >Entrar al Area Administrativa</a>
+</div>
+<div class="row">
+    <h1>My Backups</h1>
+</div>
+<div class="row">
+    <h4>Pagina donde se puede descargar un archivo de la base de datos
+        que contenga la información de la temperatura, humedad, luminosidad y presencia leido hasta ahora en los laboratorios.
+    </h4>
+</div>
+<div class="row">
+    <h2>Laboratorio de prototipos</h2>
+</div>
+<div class="row">
+    <a class="excel-btn" href="{% url 'export-excel' %}" >Exportar en Excel (.xls)</a>
+</div>
+{% endblock content %}
