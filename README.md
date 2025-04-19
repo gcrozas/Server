@@ -28,3 +28,13 @@ Servidor para la interconexión de dispositivos IoT de los laboratorios de las E
 - Xlwt (Genera archivos en Microsoft Excel versiones de 95 y 2003)
 - Datetime (Gestión de fecha y hora)
 - Time (Funciones relacionadas con el tiempo)
+
+## ¿Por qué lo hice?
+
+Este proyecto refleja mi interés por la robótica, el IoT y el desarrollo de software que interactúa con hardware real. Fue una experiencia completa donde combiné conocimientos de redes, backend, protocolos de comunicación y sistemas iot.
+
+## Licencia
+
+Este proyecto está licenciado bajo la Licencia MIT. Puedes usarlo, modificarlo y compartirlo libremente, siempre y cuando me des el crédito correspondiente.
+
+© 2025 GabrielaRozas
